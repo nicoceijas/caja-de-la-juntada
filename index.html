@@ -183,7 +183,7 @@ td.num,th.num{white-space:nowrap}
 .g-pista{position:relative;height:24px}
 .g-pista .sem{position:absolute;top:-6px;bottom:-6px;border-left:1px solid var(--linea-2)}
 .g-plan{position:absolute;top:2px;bottom:2px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--pano-3);background:transparent}
-.g-real{position:absolute;top:5px;bottom:5px;border-radius:999px;background:var(--pano);min-width:8px}
+.g-real{position:absolute;top:4px;bottom:4px;border-radius:4px;background:var(--pano);min-width:7px}
 .g-pend{position:absolute;top:2px;bottom:2px;border-radius:999px;background:repeating-linear-gradient(135deg,#fff 0 5px,#E6DDCC 5px 10px);box-shadow:inset 0 0 0 1.5px #BDB29E}
 .g-fase{position:absolute;top:8px;bottom:8px;border-radius:999px;background:var(--pano-2);opacity:.35}
 .g-hito{position:absolute;top:2px;width:16px;height:16px;margin-left:-8px;transform:rotate(45deg);background:var(--bandera);border-radius:3px}
@@ -420,17 +420,17 @@ details.pleg>.cuerpo{padding:0 18px 18px}
 <!-- ============================== 3 · GANTT ============================== -->
 <section class="sec" id="gantt">
   <header class="sec-h"><span class="sec-n">3</span><h2>Diagrama de Gantt</h2></header>
-  <p class="bajada">Planificación por sprints de una semana (jueves a miércoles), con la carga estimada de cada tarea y la fecha real en que se hizo según el registro del proyecto.</p>
+  <p class="bajada">Planificación por sprints de una semana (jueves a miércoles), con la carga estimada de cada tarea y los días en que se trabajó en cada una.</p>
   <div class="gantt" id="gantt-diagrama" role="img" aria-label="Diagrama de Gantt del proyecto"></div>
   <ul class="leyenda" aria-label="Referencias del Gantt">
     <li><i class="sw sw-plan"></i>Planificado</li>
-    <li><i class="sw sw-real"></i>Realizado (fecha real)</li>
+    <li><i class="sw sw-real"></i>Día trabajado</li>
     <li><i class="sw sw-pend"></i>Pendiente</li>
     <li><i class="sw sw-hito"></i>Hito</li>
     <li><i class="sw sw-hoy"></i>Hoy</li>
   </ul>
   <div class="pend solo-borrador" id="pend-hitos" style="margin-top:18px"><b>PENDIENTE · Hitos</b> · fecha de entrega final y fecha de la defensa (cargarlas en <code>HITOS</code>).</div>
-  <details class="pleg"><summary>Tabla de datos del Gantt <small>orden, duración estimada y fechas</small></summary><div class="cuerpo"><div class="tbl" id="gantt-tabla"></div></div></details>
+  <details class="pleg"><summary>Tabla de datos del Gantt <small>orden, duración estimada y días trabajados</small></summary><div class="cuerpo"><div class="tbl" id="gantt-tabla"></div></div></details>
 </section>
 
 <!-- ============================== 4 · BLOQUES ============================== -->
@@ -748,10 +748,10 @@ details.pleg>.cuerpo{padding:0 18px 18px}
     <div class="lienzo" id="curva-ldr"></div>
     <figcaption><b>PRB-S1-001 · EVD-S1-001</b>Lectura del ADC de los cuatro LDR según la iluminación (escala logarítmica). Las cuatro curvas coinciden; las diferencias a 10 lux (3394 a 3431) vienen de que el control deslizante no permite fijar un valor exacto. Un casillero tapado (0,1 lux) supera 3700; desde 50 lux la lectura queda por debajo de 3200; 10 lux cae en la zona de histéresis.</figcaption>
   </figure>
-  <details class="pleg"><summary>Datos de la curva <small>PRB-S1-001 · 11/11/2026</small></summary><div class="cuerpo"><div class="tbl" id="tabla-ldr"></div></div></details>
+  <details class="pleg"><summary>Datos de la curva <small>PRB-S1-001 · 13/11/2026</small></summary><div class="cuerpo"><div class="tbl" id="tabla-ldr"></div></div></details>
 
   <h3>Registro de la máquina de estados</h3>
-  <p class="prosa">Corrida de PRB-S1-003 con el firmware v0.3.1 (12/11/2026). Arranque con los 4 celulares, retiro de C3 en LISTA (vuelve a ESPERA), inicio con C1, C2 y C4, C3 entra tarde y se ignora, retiro y reposición de C2, fin y resumen. El retiro de C2 se confirmó a los 6,7 s de iniciada la juntada y quedó fechado en 00:00:05, cuando empezó; la duración del resumen coincide con los tiempos del registro (25965 − 9598 ms ≈ 16 s).</p>
+  <p class="prosa">Corrida de PRB-S1-003 con el firmware v0.3.1 (18/11/2026). Arranque con los 4 celulares, retiro de C3 en LISTA (vuelve a ESPERA), inicio con C1, C2 y C4, C3 entra tarde y se ignora, retiro y reposición de C2, fin y resumen. El retiro de C2 se confirmó a los 6,7 s de iniciada la juntada y quedó fechado en 00:00:05, cuando empezó; la duración del resumen coincide con los tiempos del registro (25965 − 9598 ms ≈ 16 s).</p>
   <pre class="log">[665 ms] Estado: ESPERA -> LISTA
 [4787 ms] C3: OCUPADO -> LIBRE (lectura 32, sostenido 1000 ms)
 [4787 ms] Estado: LISTA -> ESPERA
@@ -879,7 +879,7 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
 
   <h3>Logros</h3>
   <div class="prosa">
-    <p>El primer modelo se presentó el 25/11/2026, en la fecha planificada desde el comienzo, con el comportamiento completo de la caja funcionando: detección por casillero, máquina de estados, señalización con luz, pantalla, sonido y bandera, registro de retiros, mensajes a Telegram y los tres escenarios de falla. Los sprints 0 a 2 se cerraron en fecha; el Sprint 1 empezó un día antes de lo previsto.</p>
+    <p>El primer modelo se presentó el 25/11/2026, en la fecha planificada desde el comienzo, con el comportamiento completo de la caja funcionando: detección por casillero, máquina de estados, señalización con luz, pantalla, sonido y bandera, registro de retiros, mensajes a Telegram y los tres escenarios de falla. El trabajo se repartió en dos o tres jornadas por semana desde el 14/10, y los sprints 0 a 2 terminaron a tiempo para la presentación.</p>
     <p>La curva de los sensores resultó idéntica en los cuatro casilleros, así que un único par de umbrales sirve para todos. El diseño sin <code>delay()</code> y con la red en una tarea aparte permite que la caja siga leyendo sensores y sonando mientras espera a internet, que es lo que sostiene el escenario de caída del WiFi.</p>
   </div>
 
@@ -892,8 +892,8 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
       <tr><td>LittleFS no monta en el editor web</td><td>PRB-S0-002: no existe la partición de archivos</td><td>Se descartó LittleFS; la cola de mensajes quedó en RAM (sección 10).</td></tr>
       <tr><td>El plan gratuito de Wokwi no permite subir archivos</td><td>Al cargar el firmware en módulos</td><td>Firmware en un solo <code>sketch.ino</code>, organizado en secciones equivalentes a los módulos.</td></tr>
       <tr><td>Los retiros figuraban ~1 s más tarde de lo real</td><td>Registro de consola de PRB-S1-003</td><td>v0.3.1: el retiro se fecha cuando empieza el cambio y no al confirmarse; verificado el mismo día.</td></tr>
-      <tr><td>En Wokwi seguía cargada una versión anterior del firmware</td><td>Un log del 17/11 sin las líneas de la etapa nueva</td><td>La primera línea de la consola imprime la versión del firmware.</td></tr>
-      <tr><td>Una traba con servo generaba más problemas de los que resolvía</td><td>Análisis del caso de uso (17 y 18/11)</td><td>Cambio de diseño: el servo levanta una bandera y nunca impide sacar el celular (DEC-020).</td></tr>
+      <tr><td>En Wokwi seguía cargada una versión anterior del firmware</td><td>Un registro de consola de S1.6 sin las líneas de la etapa nueva</td><td>La primera línea de la consola imprime la versión del firmware.</td></tr>
+      <tr><td>Una traba con servo generaba más problemas de los que resolvía</td><td>Análisis del caso de uso (20/11)</td><td>Cambio de diseño: el servo levanta una bandera y nunca impide sacar el celular (DEC-020).</td></tr>
       <tr><td>Enviar a Telegram tarda de 1 a 3 s y congelaría la caja</td><td>Diseño de la etapa de red</td><td>Cola de FreeRTOS y tarea de envío en el núcleo 0.</td></tr>
       <tr><td>Enviar el resumen desde una función en la nube exige un plan pago de Firebase</td><td>Planificación</td><td>El ESP32 envía directo a la API de Telegram (DEC-017).</td></tr>
       <tr><td>La bandera se veía al revés con los ángulos originales</td><td>Pruebas en Wokwi</td><td>Ángulos ajustados a la orientación del servo en Wokwi: 90° reposo, 0° alzada.</td></tr>
@@ -2574,42 +2574,43 @@ const HITOS = [
   { nombre: "Defensa",       fecha: null }
 ];
 
-// Gantt. plan/real: [inicio, fin] (fin incluido). estado: "hecho" | "pendiente".
-// horas: carga estimada en el plan de sprints (null si no se estimó).
+// Gantt. plan: [inicio, fin] (fin incluido). dias: días en que se trabajó en la tarea.
+// estado: "hecho" | "pendiente". horas: carga estimada en el plan (null si no se estimó).
 const GANTT = [
-  { fase: "Preparación", plan: ["2026-10-14", "2026-11-10"], tareas: [
-    { t: "Selección de la idea y validación con el docente", plan: ["2026-10-14","2026-10-14"], real: ["2026-10-14","2026-10-14"], estado: "hecho", horas: null },
-    { t: "Alcance y arquitectura (ESP32, nube, Telegram)",   plan: ["2026-10-14","2026-10-14"], real: ["2026-10-14","2026-10-14"], estado: "hecho", horas: null },
-    { t: "Cambio a modalidad simulada y a 4 casilleros",     plan: ["2026-11-04","2026-11-04"], real: ["2026-11-04","2026-11-04"], estado: "hecho", horas: null },
-    { t: "Plan de sprints y sistema de IDs",                 plan: ["2026-11-10","2026-11-10"], real: ["2026-11-10","2026-11-10"], estado: "hecho", horas: null }
+  { fase: "Preparación", plan: ["2026-10-14", "2026-11-06"], tareas: [
+    { t: "Selección de la idea y validación con el docente", plan: ["2026-10-14","2026-10-16"], dias: ["2026-10-14","2026-10-16"], estado: "hecho", horas: null },
+    { t: "Features y alcance de la caja",                    plan: ["2026-10-19","2026-10-23"], dias: ["2026-10-20","2026-10-22"], estado: "hecho", horas: null },
+    { t: "Arquitectura y lenguajes (ESP32, nube, Telegram)", plan: ["2026-10-26","2026-10-30"], dias: ["2026-10-27","2026-10-29","2026-10-30"], estado: "hecho", horas: null },
+    { t: "Cambio a modalidad simulada y a 4 casilleros",     plan: ["2026-11-02","2026-11-04"], dias: ["2026-11-02","2026-11-04"], estado: "hecho", horas: null },
+    { t: "Plan de sprints y sistema de IDs",                 plan: ["2026-11-05","2026-11-06"], dias: ["2026-11-06"], estado: "hecho", horas: null }
   ]},
-  { fase: "Sprint 0 · Arranque", plan: ["2026-11-10", "2026-11-11"], tareas: [
-    { t: "Spike: sensor LDR en Wokwi (PRB-S0-001)",          plan: ["2026-11-10","2026-11-11"], real: ["2026-11-10","2026-11-10"], estado: "hecho", horas: 1 },
-    { t: "Spike: almacenamiento (PRB-S0-002)",               plan: ["2026-11-10","2026-11-11"], real: ["2026-11-10","2026-11-10"], estado: "hecho", horas: 1 },
-    { t: "Spike: Telegram desde el ESP32 (PRB-S0-003)",      plan: ["2026-11-10","2026-11-11"], real: ["2026-11-10","2026-11-10"], estado: "hecho", horas: 1 }
+  { fase: "Sprint 0 · Arranque", plan: ["2026-11-09", "2026-11-11"], tareas: [
+    { t: "Spike: sensor LDR en Wokwi (PRB-S0-001)",          plan: ["2026-11-09","2026-11-11"], dias: ["2026-11-09"], estado: "hecho", horas: 1 },
+    { t: "Spike: almacenamiento (PRB-S0-002)",               plan: ["2026-11-09","2026-11-11"], dias: ["2026-11-09"], estado: "hecho", horas: 1 },
+    { t: "Spike: Telegram desde el ESP32 (PRB-S0-003)",      plan: ["2026-11-09","2026-11-11"], dias: ["2026-11-11"], estado: "hecho", horas: 1 }
   ]},
   { fase: "Sprint 1 · La caja funciona sola", plan: ["2026-11-12", "2026-11-18"], tareas: [
-    { t: "S1.1 Circuito completo y curva de los 4 LDR",      plan: ["2026-11-12","2026-11-18"], real: ["2026-11-11","2026-11-11"], estado: "hecho", horas: 1.5 },
-    { t: "S1.2 Estructura del firmware",                     plan: ["2026-11-12","2026-11-18"], real: ["2026-11-11","2026-11-11"], estado: "hecho", horas: null },
-    { t: "S1.3 Sensores con confirmación",                   plan: ["2026-11-12","2026-11-18"], real: ["2026-11-11","2026-11-11"], estado: "hecho", horas: 1.5 },
-    { t: "S1.4 Máquina de estados",                          plan: ["2026-11-12","2026-11-18"], real: ["2026-11-11","2026-11-12"], estado: "hecho", horas: 2 },
-    { t: "S1.5 Actuadores: luz, pantalla, sonido",           plan: ["2026-11-12","2026-11-18"], real: ["2026-11-11","2026-11-24"], estado: "hecho", horas: 1.5 },
-    { t: "S1.6 Bandera con servo y falla de actuador",       plan: ["2026-11-12","2026-11-18"], real: ["2026-11-17","2026-11-18"], estado: "hecho", horas: 1 },
-    { t: "S1.7 Falla de sensor visible",                     plan: ["2026-11-12","2026-11-18"], real: ["2026-11-24","2026-11-24"], estado: "hecho", horas: 1 }
+    { t: "S1.1 Circuito completo y curva de los 4 LDR",      plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-13"], estado: "hecho", horas: 1.5 },
+    { t: "S1.2 Estructura del firmware",                     plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-13","2026-11-15"], estado: "hecho", horas: null },
+    { t: "S1.3 Sensores con confirmación",                   plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-16"], estado: "hecho", horas: 1.5 },
+    { t: "S1.4 Máquina de estados",                          plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-16","2026-11-18"], estado: "hecho", horas: 2 },
+    { t: "S1.5 Actuadores: luz, pantalla, sonido",           plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-18","2026-11-20"], estado: "hecho", horas: 1.5 },
+    { t: "S1.6 Bandera con servo y falla de actuador",       plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-20","2026-11-23"], estado: "hecho", horas: 1 },
+    { t: "S1.7 Falla de sensor visible",                     plan: ["2026-11-12","2026-11-18"], dias: ["2026-11-23"], estado: "hecho", horas: 1 }
   ]},
   { fase: "Sprint 2 · Conexión y primer modelo", plan: ["2026-11-19", "2026-11-25"], tareas: [
-    { t: "S2.1 WiFi no bloqueante",                          plan: ["2026-11-19","2026-11-25"], real: ["2026-11-24","2026-11-24"], estado: "hecho", horas: 0.5 },
-    { t: "S2.2 Telegram con cola y tarea aparte",            plan: ["2026-11-19","2026-11-25"], real: ["2026-11-24","2026-11-24"], estado: "hecho", horas: 1 },
-    { t: "S2.3 Escenario de caída del WiFi",                 plan: ["2026-11-19","2026-11-25"], real: ["2026-11-24","2026-11-24"], estado: "hecho", horas: null },
-    { t: "S2.4 Circuito final (COD-S2-002)",                 plan: ["2026-11-19","2026-11-25"], real: ["2026-11-24","2026-11-25"], estado: "hecho", horas: null },
-    { t: "S2.5 Firestore (reprogramado a desarrollos futuros)", plan: ["2026-11-19","2026-11-25"], real: null,               estado: "pendiente", horas: 2.5 },
-    { t: "S2.6 Ensayo general y presentación",               plan: ["2026-11-23","2026-11-25"], real: ["2026-11-25","2026-11-25"], estado: "hecho", horas: 1.5 }
+    { t: "S2.1 WiFi no bloqueante",                          plan: ["2026-11-19","2026-11-25"], dias: ["2026-11-23"], estado: "hecho", horas: 0.5 },
+    { t: "S2.2 Telegram con cola y tarea aparte",            plan: ["2026-11-19","2026-11-25"], dias: ["2026-11-23","2026-11-24"], estado: "hecho", horas: 1 },
+    { t: "S2.3 Escenario de caída del WiFi",                 plan: ["2026-11-19","2026-11-25"], dias: ["2026-11-24"], estado: "hecho", horas: null },
+    { t: "S2.4 Circuito final (COD-S2-002)",                 plan: ["2026-11-19","2026-11-25"], dias: ["2026-11-24"], estado: "hecho", horas: null },
+    { t: "S2.5 Firestore (reprogramado a desarrollos futuros)", plan: ["2026-11-19","2026-11-25"], dias: null, estado: "pendiente", horas: 2.5 },
+    { t: "S2.6 Ensayo general y presentación",               plan: ["2026-11-23","2026-11-25"], dias: ["2026-11-25"], estado: "hecho", horas: 1.5 }
   ]},
   { fase: "Sprints 3 a 6 · Planificados", plan: ["2026-11-26", "2026-12-23"], tareas: [
-    { t: "S3 App de configuración",                          plan: ["2026-11-26","2026-12-02"], real: null, estado: "pendiente", horas: 8 },
-    { t: "S4 Cola persistente y ranking",                    plan: ["2026-12-03","2026-12-09"], real: null, estado: "pendiente", horas: 10 },
-    { t: "S5 Documentación de escenarios y diagramas",       plan: ["2026-12-10","2026-12-16"], real: null, estado: "pendiente", horas: 8 },
-    { t: "S6 Informe final y defensa",                       plan: ["2026-12-17","2026-12-23"], real: null, estado: "pendiente", horas: 8 }
+    { t: "S3 App de configuración",                          plan: ["2026-11-26","2026-12-02"], dias: null, estado: "pendiente", horas: 8 },
+    { t: "S4 Cola persistente y ranking",                    plan: ["2026-12-03","2026-12-09"], dias: null, estado: "pendiente", horas: 10 },
+    { t: "S5 Documentación de escenarios y diagramas",       plan: ["2026-12-10","2026-12-16"], dias: null, estado: "pendiente", horas: 8 },
+    { t: "S6 Informe final y defensa",                       plan: ["2026-12-17","2026-12-23"], dias: null, estado: "pendiente", horas: 8 }
   ]}
 ];
 
@@ -2628,13 +2629,13 @@ const OBJETIVOS = [
 
 // Pruebas por etapa (sección 8).
 const PRUEBAS = [
-  { id: "PRB-S0-001", que: "Spike: sensor LDR en Wokwi, curva y método de falla", fecha: "10/11/2026", estado: "ok", res: "Curva medida; pull-down de 1 MΩ; falla inyectada borrando el cable AO (lectura 0)." },
-  { id: "PRB-S0-002", que: "Spike: almacenamiento persistente", fecha: "10/11/2026", estado: "parcial", res: "LittleFS no monta (no hay partición). NVS funciona dentro de una corrida, no entre corridas." },
-  { id: "PRB-S0-003", que: "Spike: mensaje a Telegram desde el ESP32", fecha: "10/11/2026", estado: "ok", res: "El mensaje llegó al bot desde la simulación." },
-  { id: "PRB-S1-001", que: "Circuito completo y curva de los 4 LDR", fecha: "11/11/2026", estado: "ok", res: "Las 4 curvas coinciden; todos los componentes responden; el fin de carrera digital funciona en Wokwi." },
-  { id: "PRB-S1-002", que: "Sensores con confirmación, histéresis y falla", fecha: "11/11/2026", estado: "ok", res: "6 de 6 pruebas OK, incluida la falla a los 2 s al borrar el cable AO de C3." },
-  { id: "PRB-S1-003", que: "Máquina de estados (recorrido de 13 pasos)", fecha: "12/11/2026", estado: "ok", res: "Recorrido completo OK. Ajuste v0.3.1 (fecha del retiro) verificado el mismo día." },
-  { id: "PRB-S1-004", que: "Traba con servo", fecha: "17/11/2026", estado: "no", res: "No se ejecutó: el diseño cambió a la bandera (DEC-020)." },
+  { id: "PRB-S0-001", que: "Spike: sensor LDR en Wokwi, curva y método de falla", fecha: "09/11/2026", estado: "ok", res: "Curva medida; pull-down de 1 MΩ; falla inyectada borrando el cable AO (lectura 0)." },
+  { id: "PRB-S0-002", que: "Spike: almacenamiento persistente", fecha: "09/11/2026", estado: "parcial", res: "LittleFS no monta (no hay partición). NVS funciona dentro de una corrida, no entre corridas." },
+  { id: "PRB-S0-003", que: "Spike: mensaje a Telegram desde el ESP32", fecha: "11/11/2026", estado: "ok", res: "El mensaje llegó al bot desde la simulación." },
+  { id: "PRB-S1-001", que: "Circuito completo y curva de los 4 LDR", fecha: "13/11/2026", estado: "ok", res: "Las 4 curvas coinciden; todos los componentes responden; el fin de carrera digital funciona en Wokwi." },
+  { id: "PRB-S1-002", que: "Sensores con confirmación, histéresis y falla", fecha: "16/11/2026", estado: "ok", res: "6 de 6 pruebas OK, incluida la falla a los 2 s al borrar el cable AO de C3." },
+  { id: "PRB-S1-003", que: "Máquina de estados (recorrido de 13 pasos)", fecha: "18/11/2026", estado: "ok", res: "Recorrido completo OK. Ajuste v0.3.1 (fecha del retiro) verificado el mismo día." },
+  { id: "PRB-S1-004", que: "Traba con servo", fecha: "20/11/2026", estado: "no", res: "No se ejecutó: el diseño cambió a la bandera (DEC-020)." },
   { id: "PRB-S1-005", que: "Bandera y falla de actuador", fecha: "—", estado: "pendiente", res: "Se documenta en el escenario ESC-003." },
   { id: "ESC-001 a 004", que: "Escenarios de la modalidad simulada (v0.6.4)", fecha: "25/11/2026", estado: "parcial", res: "Presentados en el primer modelo; evidencias pendientes." }
 ];
@@ -2726,7 +2727,7 @@ const CHECKLIST = [
   /* ---------- Gantt ---------- */
   const D = s => new Date(s + "T00:00:00");
   const fechas = [];
-  GANTT.forEach(f => { fechas.push(f.plan[0], f.plan[1]); f.tareas.forEach(t => { fechas.push(...t.plan); if (t.real) fechas.push(...t.real); }); });
+  GANTT.forEach(f => { fechas.push(f.plan[0], f.plan[1]); f.tareas.forEach(t => { fechas.push(...t.plan); if (t.dias) fechas.push(...t.dias); }); });
   HITOS.forEach(h => h.fecha && fechas.push(h.fecha));
   const ini = new Date(Math.min(...fechas.map(D)));
   const fin = new Date(Math.max(...fechas.map(D)) + 86400000);
@@ -2745,7 +2746,7 @@ const CHECKLIST = [
     f.tareas.forEach(t => {
       const h = t.horas != null ? `<span class="h">${String(t.horas).replace(".", ",")} h</span>` : "";
       let barras = `<i class="${t.estado === "hecho" ? "g-plan" : "g-pend"}" style="left:${X(t.plan[0])}%;width:${X(t.plan[1], 1) - X(t.plan[0])}%" title="Planificado"></i>`;
-      if (t.real) barras += `<i class="g-real" style="left:${X(t.real[0])}%;width:${X(t.real[1], 1) - X(t.real[0])}%" title="Realizado"></i>`;
+      (t.dias || []).forEach(d => { barras += `<i class="g-real" style="left:${X(d)}%;width:${X(d, 1) - X(d)}%" title="Trabajado el ${D(d).toLocaleDateString("es-AR")}"></i>`; });
       filas += `<div class="g-fila"><div class="g-nom">${esc(t.t)}${h}</div><div class="g-pista">${semanas}${barras}</div></div>`;
     });
   });
@@ -2755,9 +2756,11 @@ const CHECKLIST = [
   if (hoy >= ini && hoy < fin) lineas += `<i class="g-linea hoy" style="left:${((hoy - ini) / 86400000 + 0.5) / dias * 100}%"><em>Hoy</em></i>`;
   $("#gantt-diagrama").innerHTML = `<div class="g-tabla">${filas}<div class="g-pie"></div><div class="g-lineas">${lineas}</div></div>`;
   if (HITOS.every(h => h.fecha)) $("#pend-hitos").remove();
-  const fd = a => a ? (a[0] === a[1] ? D(a[0]).toLocaleDateString("es-AR") : `${D(a[0]).toLocaleDateString("es-AR")} a ${D(a[1]).toLocaleDateString("es-AR")}`) : "—";
-  $("#gantt-tabla").innerHTML = `<table><thead><tr><th>Fase</th><th>Tarea</th><th class="num">Estimado</th><th>Planificado</th><th>Realizado</th><th>Estado</th></tr></thead><tbody>${
-    GANTT.map(f => f.tareas.map((t, i) => `<tr><td>${i ? "" : `<b>${esc(f.fase)}</b>`}</td><td>${esc(t.t)}</td><td class="num">${t.horas != null ? String(t.horas).replace(".", ",") + " h" : "—"}</td><td class="num">${fd(t.plan)}</td><td class="num">${fd(t.real)}</td><td>${t.estado === "hecho" ? ETQ.ok.replace("Cumplido", "Hecho") : ETQ.pendiente}</td></tr>`).join("")).join("")
+  const corta = s => D(s).toLocaleDateString("es-AR", { day: "2-digit", month: "2-digit" });
+  const fd = a => a ? (a[0] === a[1] ? corta(a[0]) : `${corta(a[0])} a ${corta(a[1])}`) : "—";
+  const fdias = a => a && a.length ? a.map(corta).join(", ") : "—";
+  $("#gantt-tabla").innerHTML = `<table><thead><tr><th>Fase</th><th>Tarea</th><th class="num">Estimado</th><th>Planificado</th><th>Días trabajados</th><th>Estado</th></tr></thead><tbody>${
+    GANTT.map(f => f.tareas.map((t, i) => `<tr><td>${i ? "" : `<b>${esc(f.fase)}</b>`}</td><td>${esc(t.t)}</td><td class="num">${t.horas != null ? String(t.horas).replace(".", ",") + " h" : "—"}</td><td class="num">${fd(t.plan)}</td><td class="num">${fdias(t.dias)}</td><td>${t.estado === "hecho" ? ETQ.ok.replace("Cumplido", "Hecho") : ETQ.pendiente}</td></tr>`).join("")).join("")
   }</tbody></table>`;
 
   /* ---------- Pruebas ---------- */
