@@ -1,0 +1,9 @@
+# Material de trabajo que no forma parte de la entrega
+fuentes/
+contexto_landing.zip
+PROMPT_landing.md
+maquetas/
+publicar/
+evidencia-modificaciones/
+tools/publicar.py
+__pycache__/
