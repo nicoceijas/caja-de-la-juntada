@@ -330,14 +330,13 @@ details.pleg>.cuerpo{padding:0 18px 18px}
     <li><a href="#gantt"><span>3</span>Diagrama de Gantt</a></li>
     <li><a href="#bloques"><span>4</span>Diagrama de bloques</a></li>
     <li><a href="#conexiones"><span>5</span>Esquema de conexiones</a></li>
-    <li><a href="#presupuesto"><span>6</span>Presupuesto</a></li>
-    <li><a href="#hardware-software"><span>7</span>Hardware y software</a></li>
-    <li><a href="#codigo"><span>8</span>Código comentado</a></li>
-    <li><a href="#ensayos"><span>9</span>Ensayos y pruebas</a></li>
-    <li><a href="#analisis"><span>10</span>Análisis de resultados</a></li>
-    <li><a href="#limitaciones"><span>11</span>Limitaciones</a></li>
-    <li><a href="#futuro"><span>12</span>Desarrollos futuros</a></li>
-    <li><a href="#conclusiones"><span>13</span>Conclusiones</a></li>
+    <li><a href="#hardware-software"><span>6</span>Hardware y software</a></li>
+    <li><a href="#codigo"><span>7</span>Código comentado</a></li>
+    <li><a href="#ensayos"><span>8</span>Ensayos y pruebas</a></li>
+    <li><a href="#analisis"><span>9</span>Análisis de resultados</a></li>
+    <li><a href="#limitaciones"><span>10</span>Limitaciones</a></li>
+    <li><a href="#futuro"><span>11</span>Desarrollos futuros</a></li>
+    <li><a href="#conclusiones"><span>12</span>Conclusiones</a></li>
     <li><a href="#anexos"><span>A</span>Anexos</a></li>
   </ol>
 </nav>
@@ -412,7 +411,7 @@ details.pleg>.cuerpo{padding:0 18px 18px}
 <!-- ============================== 2 · OBJETIVOS ============================== -->
 <section class="sec" id="objetivos">
   <header class="sec-h"><span class="sec-n">2</span><h2>Objetivos</h2></header>
-  <p class="bajada">Qué se propuso lograr el proyecto. Cada objetivo específico es verificable y se evalúa en el análisis de resultados (sección 10).</p>
+  <p class="bajada">Qué se propuso lograr el proyecto. Cada objetivo específico es verificable y se evalúa en el análisis de resultados (sección 9).</p>
   <div class="pend solo-borrador" style="margin-bottom:20px"><b>PENDIENTE · Objetivos</b> · aprobar o corregir esta redacción antes de pasar a modo final.</div>
   <div class="general"><b>Objetivo general</b>Desarrollar y validar en simulación un prototipo IoT basado en ESP32 que detecte la presencia de celulares en cuatro casilleros durante una juntada, haga visible con luz, sonido y pantalla cuando alguien retira el suyo, lo registre, lo notifique al grupo por Telegram y detecte fallas de sus propios componentes sin dejar de funcionar.</div>
   <div class="grilla-2" id="lista-objetivos"></div>
@@ -575,27 +574,9 @@ details.pleg>.cuerpo{padding:0 18px 18px}
   </div>
 </section>
 
-<!-- ============================== 6 · PRESUPUESTO ============================== -->
-<section class="sec" id="presupuesto">
-  <header class="sec-h"><span class="sec-n">6</span><h2>Presupuesto</h2></header>
-  <p class="bajada">El prototipo se desarrolló íntegramente en simulación: no se compró ningún componente.</p>
-  <div class="pend solo-borrador" style="margin-bottom:20px"><b>PENDIENTE · Presupuesto</b> · la consigna pide esta sección. Se muestra solo el costo real del prototipo simulado. Confirmar si queda así o se quita.</div>
-  <div class="tbl"><table>
-    <thead><tr><th>Recurso</th><th>Uso en el proyecto</th><th>Plan</th><th class="num">Costo</th></tr></thead>
-    <tbody>
-      <tr><td>Wokwi (editor web)</td><td>Circuito, firmware y ejecución de todas las pruebas</td><td>Gratuito</td><td class="num">$0</td></tr>
-      <tr><td>Red Wokwi-GUEST</td><td>Salida a internet del ESP32 simulado</td><td>Incluida en Wokwi</td><td class="num">$0</td></tr>
-      <tr><td>Bot de Telegram (BotFather)</td><td>Mensajes al chat del grupo</td><td>Gratuito</td><td class="num">$0</td></tr>
-      <tr><td>Librerías (Adafruit SSD1306, GFX, NeoPixel, ESP32Servo)</td><td>Pantalla, tira de LED y servo</td><td>Código abierto</td><td class="num">$0</td></tr>
-    </tbody>
-    <tfoot><tr><td colspan="3"><b>Total</b></td><td class="num"><b>$0</b></td></tr></tfoot>
-  </table></div>
-  <p class="nota">El plan gratuito de Wokwi no permite subir archivos al proyecto. Por eso el firmware vive en un único <code>sketch.ino</code> (sección 7).</p>
-</section>
-
-<!-- ============================== 7 · HARDWARE Y SOFTWARE ============================== -->
+<!-- ============================== 6 · HARDWARE Y SOFTWARE ============================== -->
 <section class="sec" id="hardware-software">
-  <header class="sec-h"><span class="sec-n">7</span><h2>Hardware y software</h2></header>
+  <header class="sec-h"><span class="sec-n">6</span><h2>Hardware y software</h2></header>
   <p class="bajada">Qué componentes se eligieron y por qué, cómo se usa cada uno en la simulación y cómo está estructurado el código.</p>
 
   <div class="prosa">
@@ -679,7 +660,7 @@ details.pleg>.cuerpo{padding:0 18px 18px}
       <text class="t-mini" x="580" y="414">FIN: resumen en pantalla, consola y Telegram</text>
     </svg>
     </div>
-    <figcaption><b>Figura 7.1</b>Estados y transiciones de la caja (función <code>estadosActualizar()</code>). En paralelo con JUNTADA y ALERTA corre la verificación de la bandera: si el fin de carrera no confirma en 2 s, hay falla de actuador y la juntada sigue sin bandera. Los sensores en falla se avisan en cualquier estado.</figcaption>
+    <figcaption><b>Figura 6.1</b>Estados y transiciones de la caja (función <code>estadosActualizar()</code>). En paralelo con JUNTADA y ALERTA corre la verificación de la bandera: si el fin de carrera no confirma en 2 s, hay falla de actuador y la juntada sigue sin bandera. Los sensores en falla se avisan en cualquier estado.</figcaption>
   </figure>
   <div class="tbl" style="margin-top:18px"><table>
     <thead><tr><th>Estado</th><th>Tira de LED</th><th>Pantalla</th><th>Sonido</th></tr></thead>
@@ -696,7 +677,7 @@ details.pleg>.cuerpo{padding:0 18px 18px}
   <div class="cols">
     <div class="prosa">
       <p>La única comunicación con la nube implementada es el envío a Telegram, directo desde el ESP32 con un <code>POST</code> HTTPS a la API de bots (DEC-017). Se eligió Telegram porque su API de bots es gratuita y simple; WhatsApp no ofrece una vía simple y gratuita desde un microcontrolador (DEC-009). Enviarlo desde el ESP32 evita depender de una función en la nube, que en Firebase exige un plan pago.</p>
-      <p>En la simulación, <code>WiFiClientSecure</code> usa <code>setInsecure()</code> y no valida el certificado de Telegram (limitación técnica, sección 11). El token del bot y el <code>chat_id</code> se cargan solo en la copia local del proyecto; el código publicado los tiene en <code>TU_TOKEN</code> y <code>TU_CHAT_ID</code>.</p>
+      <p>En la simulación, <code>WiFiClientSecure</code> usa <code>setInsecure()</code> y no valida el certificado de Telegram (limitación técnica, sección 10). El token del bot y el <code>chat_id</code> se cargan solo en la copia local del proyecto; el código publicado los tiene en <code>TU_TOKEN</code> y <code>TU_CHAT_ID</code>.</p>
     </div>
     <div class="tbl"><table>
       <thead><tr><th>Evento</th><th>Mensaje a Telegram</th></tr></thead>
@@ -711,9 +692,9 @@ details.pleg>.cuerpo{padding:0 18px 18px}
   </div>
 </section>
 
-<!-- ============================== 8 · CÓDIGO ============================== -->
+<!-- ============================== 7 · CÓDIGO ============================== -->
 <section class="sec" id="codigo">
-  <header class="sec-h"><span class="sec-n">8</span><h2>Código comentado</h2></header>
+  <header class="sec-h"><span class="sec-n">7</span><h2>Código comentado</h2></header>
   <p class="bajada">Fragmentos clave del firmware v0.6.4 (COD-S2-001) con su explicación. Se extraen del archivo completo, que está al final de la sección.</p>
 
   <div class="frag">
@@ -754,9 +735,9 @@ details.pleg>.cuerpo{padding:0 18px 18px}
   </details>
 </section>
 
-<!-- ============================== 9 · ENSAYOS ============================== -->
+<!-- ============================== 8 · ENSAYOS ============================== -->
 <section class="sec" id="ensayos">
-  <header class="sec-h"><span class="sec-n">9</span><h2>Ensayos y pruebas</h2></header>
+  <header class="sec-h"><span class="sec-n">8</span><h2>Ensayos y pruebas</h2></header>
   <p class="bajada">Pruebas de cada etapa del desarrollo y los cuatro escenarios de la modalidad simulada: funcionamiento normal, falla de sensor, falla de actuador y caída del WiFi.</p>
 
   <h3>Pruebas por etapa</h3>
@@ -889,9 +870,9 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
   </div>
 </section>
 
-<!-- ============================== 10 · ANÁLISIS ============================== -->
+<!-- ============================== 9 · ANÁLISIS ============================== -->
 <section class="sec" id="analisis">
-  <header class="sec-h"><span class="sec-n">10</span><h2>Análisis de resultados</h2></header>
+  <header class="sec-h"><span class="sec-n">9</span><h2>Análisis de resultados</h2></header>
   <p class="bajada">Desempeño contra cada objetivo específico, logros y problemas que aparecieron durante el desarrollo.</p>
   <div class="pend solo-borrador" style="margin-bottom:20px"><b>PENDIENTE · Análisis</b> · revisar la redacción; los estados de OE3 a OE8 pasan a “Cumplido” cuando estén las evidencias de los escenarios.</div>
   <div class="tbl" id="tabla-objetivos"></div>
@@ -908,7 +889,7 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
     <tbody>
       <tr><td>El interruptor deslizante no corta la señal analógica en Wokwi</td><td>PRB-S0-001: la lectura no cambiaba ni en serie ni a masa</td><td>La falla de sensor se inyecta borrando el cable AO y reiniciando (DEC-014).</td></tr>
       <tr><td>Con un pull-down de 10 kΩ la lectura bajaba a la mitad</td><td>PRB-S0-001</td><td>Pull-down de 1 MΩ, que no altera la lectura normal (DEC-013).</td></tr>
-      <tr><td>LittleFS no monta en el editor web</td><td>PRB-S0-002: no existe la partición de archivos</td><td>Se descartó LittleFS; la cola de mensajes quedó en RAM (sección 11).</td></tr>
+      <tr><td>LittleFS no monta en el editor web</td><td>PRB-S0-002: no existe la partición de archivos</td><td>Se descartó LittleFS; la cola de mensajes quedó en RAM (sección 10).</td></tr>
       <tr><td>El plan gratuito de Wokwi no permite subir archivos</td><td>Al cargar el firmware en módulos</td><td>Firmware en un solo <code>sketch.ino</code>, organizado en secciones equivalentes a los módulos.</td></tr>
       <tr><td>Los retiros figuraban ~1 s más tarde de lo real</td><td>Registro de consola de PRB-S1-003</td><td>v0.3.1: el retiro se fecha cuando empieza el cambio y no al confirmarse; verificado el mismo día.</td></tr>
       <tr><td>En Wokwi seguía cargada una versión anterior del firmware</td><td>Un log del 17/11 sin las líneas de la etapa nueva</td><td>La primera línea de la consola imprime la versión del firmware.</td></tr>
@@ -920,9 +901,9 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
   </table></div>
 </section>
 
-<!-- ============================== 11 · LIMITACIONES ============================== -->
+<!-- ============================== 10 · LIMITACIONES ============================== -->
 <section class="sec" id="limitaciones">
-  <header class="sec-h"><span class="sec-n">11</span><h2>Limitaciones</h2></header>
+  <header class="sec-h"><span class="sec-n">10</span><h2>Limitaciones</h2></header>
   <p class="bajada">Restricciones conocidas del sistema, clasificadas en técnicas, funcionales y de diseño. Se separan los hechos observados en pruebas de lo que todavía no se verificó.</p>
 
   <article class="lim">
@@ -963,9 +944,9 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
   <div class="pend solo-borrador" style="margin-top:20px"><b>PENDIENTE · Limitaciones</b> · decidir qué candidatas “en análisis” pasan a ficha LIM y cuáles se omiten.</div>
 </section>
 
-<!-- ============================== 12 · DESARROLLOS FUTUROS ============================== -->
+<!-- ============================== 11 · DESARROLLOS FUTUROS ============================== -->
 <section class="sec" id="futuro">
-  <header class="sec-h"><span class="sec-n">12</span><h2>Desarrollos futuros y nuevas features</h2></header>
+  <header class="sec-h"><span class="sec-n">11</span><h2>Desarrollos futuros y nuevas features</h2></header>
   <p class="bajada">Lo que queda para próximas versiones del sistema, separado en requisitos no implementados, limitaciones a superar y defectos conocidos.</p>
   <div class="grilla-3" style="margin-bottom:26px">
     <div class="panel"><span class="etq info">Requisito no implementado</span><p style="margin-top:8px;font-size:15px">Una función prevista en la especificación que todavía no se construyó.</p></div>
@@ -991,9 +972,9 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
   </table></div>
 </section>
 
-<!-- ============================== 13 · CONCLUSIONES ============================== -->
+<!-- ============================== 12 · CONCLUSIONES ============================== -->
 <section class="sec" id="conclusiones">
-  <header class="sec-h"><span class="sec-n">13</span><h2>Conclusiones</h2></header>
+  <header class="sec-h"><span class="sec-n">12</span><h2>Conclusiones</h2></header>
   <p class="bajada">Reflexión sobre el proyecto y lo aprendido.</p>
   <div class="pend solo-borrador" style="margin-bottom:20px"><b>PENDIENTE · Conclusiones</b> · borrador para aprobar o reescribir.</div>
   <div class="cols">
@@ -1003,7 +984,7 @@ Duracion: 00:00:16 · Primero: C2 · Retiros: 1 (C1:0 C2:1 C4:0) · Sensores en 
     </div>
     <div class="prosa">
       <p>Entre los aprendizajes técnicos se destacan la restricción entre el ADC2 y el WiFi del ESP32, que definió la elección de pines; el diseño sin <code>delay()</code> con una tarea de FreeRTOS para la red; y la necesidad de comprobar qué reproduce el simulador y qué no antes de apoyarse en él: el interruptor que no corta una señal analógica, la partición de archivos inexistente o la versión vieja del firmware que seguía cargada.</p>
-      <p>Las próximas versiones (sección 12) apuntan a darle memoria y comunidad al sistema: una app para configurar la juntada, el historial y el ranking del grupo.</p>
+      <p>Las próximas versiones (sección 11) apuntan a darle memoria y comunidad al sistema: una app para configurar la juntada, el historial y el ranking del grupo.</p>
     </div>
   </div>
 </section>
@@ -2632,7 +2613,7 @@ const GANTT = [
   ]}
 ];
 
-// Objetivos específicos y su evaluación (sección 2 y 10).
+// Objetivos específicos y su evaluación (secciones 2 y 9).
 // estado: "ok" (cumplido con evidencia) | "parcial" | "no" | "pendiente"
 const OBJETIVOS = [
   { id: "OE1", t: "Detectar la presencia de un celular en cada uno de los 4 casilleros", v: "Confirmación en 1 s, histéresis entre 3200 y 3700, misma curva en los 4", estado: "ok", nota: "Cumplido", evidencia: "PRB-S1-001, PRB-S1-002" },
@@ -2645,7 +2626,7 @@ const OBJETIVOS = [
   { id: "OE8", t: "Seguir funcionando sin WiFi y reenviar al reconectar", v: "Cola de mensajes y envío en orden al recuperar la conexión", estado: "parcial", nota: "Observado con v0.6.2 (LIM-001); falta la corrida con v0.6.4", evidencia: "ESC-004, LIM-001" }
 ];
 
-// Pruebas por etapa (sección 9).
+// Pruebas por etapa (sección 8).
 const PRUEBAS = [
   { id: "PRB-S0-001", que: "Spike: sensor LDR en Wokwi, curva y método de falla", fecha: "10/11/2026", estado: "ok", res: "Curva medida; pull-down de 1 MΩ; falla inyectada borrando el cable AO (lectura 0)." },
   { id: "PRB-S0-002", que: "Spike: almacenamiento persistente", fecha: "10/11/2026", estado: "parcial", res: "LittleFS no monta (no hay partición). NVS funciona dentro de una corrida, no entre corridas." },
@@ -2670,24 +2651,24 @@ const LDR_CURVA = {
 
 // Registro de evidencias. estado: "pedida" | "recibida" | "integrada" | "rechazada"
 const EVIDENCIAS = [
-  { id: "EVD-S1-001", que: "Planilla de la curva de los 4 LDR", sec: "9 · Ensayos", estado: "integrada", nota: "Datos integrados desde el registro de pruebas" },
+  { id: "EVD-S1-001", que: "Planilla de la curva de los 4 LDR", sec: "8 · Ensayos", estado: "integrada", nota: "Datos integrados desde el registro de pruebas" },
   { id: "EVD-S3-001", que: "Simulación completa en JUNTADA", sec: "Portada", estado: "pedida" },
   { id: "EVD-S3-002", que: "Circuito completo en Wokwi (wire diagram)", sec: "5 · Conexiones", estado: "pedida" },
-  { id: "EVD-S3-003", que: "Consola de una juntada completa", sec: "9 · ESC-001", estado: "pedida" },
-  { id: "EVD-S3-004", que: "OLED en LISTA", sec: "9 · ESC-001", estado: "pedida" },
-  { id: "EVD-S3-005", que: "OLED en JUNTADA con la tira", sec: "9 · ESC-001", estado: "pedida" },
-  { id: "EVD-S3-006", que: "OLED en ALERTA con la tira", sec: "9 · ESC-001", estado: "pedida" },
-  { id: "EVD-S3-007", que: "OLED en FIN con el resumen", sec: "9 · ESC-001", estado: "pedida" },
-  { id: "EVD-S3-008", que: "Telegram: inicio, retiro y resumen", sec: "9 · ESC-001", estado: "pedida" },
-  { id: "EVD-S3-009", que: "Consola con la falla de C3", sec: "9 · ESC-002", estado: "pedida" },
-  { id: "EVD-S3-010", que: "OLED y tira con C3 sin sensor", sec: "9 · ESC-002", estado: "pedida" },
-  { id: "EVD-S3-011", que: "Telegram: falla de sensor", sec: "9 · ESC-002", estado: "pedida" },
-  { id: "EVD-S3-012", que: "Consola con la falla de la bandera", sec: "9 · ESC-003", estado: "pedida" },
-  { id: "EVD-S3-013", que: "OLED y tira con la falla de la bandera", sec: "9 · ESC-003", estado: "pedida" },
-  { id: "EVD-S3-014", que: "Telegram: falla de actuador", sec: "9 · ESC-003", estado: "pedida" },
-  { id: "EVD-S3-015", que: "Consola de la caída y reconexión del WiFi", sec: "9 · ESC-004", estado: "pedida" },
-  { id: "EVD-S3-016", que: "OLED con “WIFI CAIDO (simulado)”", sec: "9 · ESC-004", estado: "pedida" },
-  { id: "EVD-S3-017", que: "Telegram: mensajes después de reconectar", sec: "9 · ESC-004", estado: "pedida" }
+  { id: "EVD-S3-003", que: "Consola de una juntada completa", sec: "8 · ESC-001", estado: "pedida" },
+  { id: "EVD-S3-004", que: "OLED en LISTA", sec: "8 · ESC-001", estado: "pedida" },
+  { id: "EVD-S3-005", que: "OLED en JUNTADA con la tira", sec: "8 · ESC-001", estado: "pedida" },
+  { id: "EVD-S3-006", que: "OLED en ALERTA con la tira", sec: "8 · ESC-001", estado: "pedida" },
+  { id: "EVD-S3-007", que: "OLED en FIN con el resumen", sec: "8 · ESC-001", estado: "pedida" },
+  { id: "EVD-S3-008", que: "Telegram: inicio, retiro y resumen", sec: "8 · ESC-001", estado: "pedida" },
+  { id: "EVD-S3-009", que: "Consola con la falla de C3", sec: "8 · ESC-002", estado: "pedida" },
+  { id: "EVD-S3-010", que: "OLED y tira con C3 sin sensor", sec: "8 · ESC-002", estado: "pedida" },
+  { id: "EVD-S3-011", que: "Telegram: falla de sensor", sec: "8 · ESC-002", estado: "pedida" },
+  { id: "EVD-S3-012", que: "Consola con la falla de la bandera", sec: "8 · ESC-003", estado: "pedida" },
+  { id: "EVD-S3-013", que: "OLED y tira con la falla de la bandera", sec: "8 · ESC-003", estado: "pedida" },
+  { id: "EVD-S3-014", que: "Telegram: falla de actuador", sec: "8 · ESC-003", estado: "pedida" },
+  { id: "EVD-S3-015", que: "Consola de la caída y reconexión del WiFi", sec: "8 · ESC-004", estado: "pedida" },
+  { id: "EVD-S3-016", que: "OLED con “WIFI CAIDO (simulado)”", sec: "8 · ESC-004", estado: "pedida" },
+  { id: "EVD-S3-017", que: "Telegram: mensajes después de reconectar", sec: "8 · ESC-004", estado: "pedida" }
 ];
 
 // Checklist de la consigna. estado: "ok" | "parcial" | "pendiente"
@@ -2698,12 +2679,11 @@ const CHECKLIST = [
   { item: "Diagrama de Gantt: orden de tareas y tiempo estimado", sec: "gantt", estado: "parcial", nota: "Faltan las fechas de entrega y defensa" },
   { item: "Diagrama de bloques: sensores, actuadores, microcontrolador, comunicaciones", sec: "bloques", estado: "ok" },
   { item: "Esquema de conexiones con convención de colores", sec: "conexiones", estado: "parcial", nota: "Falta la captura del circuito" },
-  { item: "Presupuesto: componentes y costo aproximado", sec: "presupuesto", estado: "parcial", nota: "Costo de la simulación ($0); confirmar" },
   { item: "Descripción del hardware y software", sec: "hardware-software", estado: "ok" },
   { item: "Código fuente ordenado y comentado", sec: "codigo", estado: "ok" },
   { item: "Ensayos: escenarios, resultados esperados y observados, ajustes", sec: "ensayos", estado: "parcial", nota: "Faltan resultados observados (evidencias)" },
   { item: "Análisis de resultados: logros, problemas, mejoras", sec: "analisis", estado: "parcial", nota: "Se completa con las evidencias" },
-  { item: "Conclusiones y mejoras futuras", sec: "conclusiones", estado: "parcial", nota: "Borrador a aprobar; mejoras en la sección 12" },
+  { item: "Conclusiones y mejoras futuras", sec: "conclusiones", estado: "parcial", nota: "Borrador a aprobar; mejoras en la sección 11" },
   { item: "Modalidad simulada: al menos 2 fallas de componentes con la plantilla", sec: "ensayos", estado: "parcial", nota: "3 fallas + funcionamiento normal; faltan evidencias" },
   { item: "Prototipo funcional (simulado)", sec: "ensayos", estado: "ok", nota: "Presentado el 25/11/2026" },
   { item: "Defensa oral: recorrido por el simulador", sec: "anexos", estado: "pendiente", nota: "Fecha a confirmar" }
